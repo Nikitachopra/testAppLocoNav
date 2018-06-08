@@ -1,0 +1,13 @@
+<h3><strong>Edit Details</strong></h3>
+<%= form_for @image, :url => "update_image_path",  :html => {:multipart => true}  do |f|%>
+		<%= image_tag @image.avatar.url %>
+		<br>
+		<%= f.label :tags, "Tag:" %>
+		<%= f.text_field :tag_list, value: f.object.tag_list.to_s, placeholder: "(seperated by commas)" %>
+		<br><br>
+		<%= f.label :name, "Name:" %>
+		<%= f.text_field :name %>
+		<br>
+		<br>
+		<%= f.submit "Update Image" %>
+<% end %>

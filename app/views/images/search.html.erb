@@ -1,0 +1,21 @@
+
+<%= form_tag search_images_path do %>
+	
+	<%= text_field_tag :query %>
+	<%= submit_tag "Search"%>
+<%end%>
+
+<br>
+<h3><strong>Search Results</strong></h3>
+<br>
+<% (1..@max_pages).each do |mp| %>
+	<a href="/images/search/?page=<%=mp%>"><%= mp %></a>
+<% end %>
+<br>
+<% @images.each do |img| %>
+			<strong><h3><%= img.name %></h3></strong>
+	    	<%= image_tag img.avatar.url %>
+	    	
+	    	
+	    	<hr>
+<% end %>

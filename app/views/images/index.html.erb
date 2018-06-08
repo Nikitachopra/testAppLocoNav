@@ -1,0 +1,27 @@
+<%= form_tag search_images_path do %>
+	
+	<%= text_field_tag :query %>
+	<%= submit_tag "Search"%>
+<%end%>
+
+<br>
+<%= link_to 'Upload Image', new_image_path%>
+<br>
+
+<% (1..@max_pages).each do |mp| %>
+	<a href="/index/?page=<%=mp%>"><%= mp %></a>
+<% end %>
+<br>
+<br>
+
+<% @images.each do |img| %>
+			
+			<strong><h2><%= img.name %></strong></h2><br>
+	    	<%= image_tag img.avatar.url %>
+	    	<br>
+	    	<%= link_to "Edit", edit_image_path(img.id) %>
+	    	<%= link_to "Destroy" %>
+	    	
+	    	
+	    	<br>
+<% end %>
